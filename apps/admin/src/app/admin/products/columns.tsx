@@ -147,7 +147,7 @@ export const columns: ColumnDef<ProductColumnData>[] = [
               onClick={async () => {
                 if (window.confirm("Are you sure you want to delete this product?")) {
                   const res = await deleteProductAction(product.id)
-                  if (res && res.error) {
+                  if (res && "error" in res) {
                     alert(res.error)
                   } else {
                     window.location.reload()

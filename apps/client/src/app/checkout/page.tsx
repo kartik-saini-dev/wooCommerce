@@ -62,7 +62,7 @@ export default async function CheckoutPage() {
             <p className="text-muted-foreground mt-2">{t("shop.completeOrder") || "Complete your order."}</p>
           </div>
 
-          <CheckoutForm cart={cart} addresses={addresses} config={config} />
+          <CheckoutForm cart={cart as any} addresses={addresses} config={config} />
         </Container>
       </Section>
     </div>
