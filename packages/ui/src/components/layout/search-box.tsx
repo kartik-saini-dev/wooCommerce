@@ -21,11 +21,11 @@ export function SearchBox({ className, onSearch }: { className?: string, onSearc
 
   return (
     <form onSubmit={handleSubmit} className={cn("relative flex items-center w-full", className)}>
-      <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none z-10" />
       <Input
         type="search"
         placeholder="Search parts, services..."
-        className="w-full bg-muted/50 dark:bg-muted/20 focus-visible:bg-background shadow-none pl-8 transition-colors"
+        className="w-full bg-muted/40 dark:bg-muted/20 focus-visible:bg-background border-border shadow-none !pl-9 pr-4 h-9 rounded-full text-sm placeholder:text-muted-foreground transition-all focus-visible:ring-1 focus-visible:ring-primary"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
