@@ -19,13 +19,11 @@ export function ConditionalLayout({
   }
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="relative flex min-h-screen flex-col bg-background text-foreground">
       {navbar}
-      <div className="flex flex-1 flex-col overflow-hidden">
-        <main className="flex-1 overflow-y-auto">
-          {children}
-        </main>
-      </div>
+      <main className="flex-1 w-full">
+        {children}
+      </main>
       {footer}
     </div>
   );

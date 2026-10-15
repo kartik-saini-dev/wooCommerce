@@ -36,14 +36,15 @@ export function Navbar({ wishlistCount = 0, userRole }: { wishlistCount?: number
         {/* Left Section: Mobile Toggle + Logo + Desktop Nav */}
         <div className="flex items-center gap-3 sm:gap-6 lg:gap-8 shrink-0">
           {/* Mobile Menu */}
-          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-            <SheetTrigger
-              className="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-muted-foreground hover:bg-muted hover:text-foreground focus:outline-none shrink-0"
-              aria-label="Open navigation menu"
-            >
-              <Menu className="h-5 w-5" />
-            </SheetTrigger>
-            <SheetContent side="left" className="w-[300px] sm:w-[350px] p-0 flex flex-col">
+          <div className="md:hidden flex items-center">
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+              <SheetTrigger
+                className="inline-flex items-center justify-center p-2 rounded-lg text-muted-foreground hover:bg-muted hover:text-foreground focus:outline-none shrink-0"
+                aria-label="Open navigation menu"
+              >
+                <Menu className="h-5 w-5" />
+              </SheetTrigger>
+              <SheetContent side="left" className="w-[300px] sm:w-[350px] p-0 flex flex-col">
               <div className="sr-only">
                 <SheetTitle>Navigation Menu</SheetTitle>
                 <SheetDescription>Main navigation menu for mobile devices</SheetDescription>
@@ -92,6 +93,7 @@ export function Navbar({ wishlistCount = 0, userRole }: { wishlistCount?: number
               </div>
             </SheetContent>
           </Sheet>
+        </div>
 
           {/* Brand Logo - Visible across all screen sizes */}
           <Link href="/" className="flex items-center gap-2 shrink-0 select-none">

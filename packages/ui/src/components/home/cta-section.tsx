@@ -20,13 +20,20 @@ export async function CtaSection() {
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-primary-foreground/90">
               {t("home.ctaDesc") || "Join thousands of satisfied customers who trust us for their shopping and professional service needs."}
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Link href="/services" className="group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none bg-secondary text-secondary-foreground hover:bg-secondary/80 h-9 px-4 gap-2">
-                {t("home.ctaButton1") || "Book a Repair"}
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full sm:w-auto">
+              <Link
+                href="/services"
+                className="inline-flex items-center justify-center rounded-xl bg-background text-foreground hover:bg-background/90 h-11 px-6 font-semibold shadow-sm transition-all gap-2 w-full sm:w-auto"
+              >
+                {t("home.ctaButton1") || "Book a Service"}
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link href="/contact" className="text-sm font-semibold leading-6 text-primary-foreground hover:underline underline-offset-4">
-                {t("home.ctaButton2") || "Contact Sales"} <span aria-hidden="true">→</span>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-xl border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 h-11 px-6 font-semibold transition-all gap-2 w-full sm:w-auto"
+              >
+                {t("home.ctaButton2") || "Contact Sales"}
+                <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>

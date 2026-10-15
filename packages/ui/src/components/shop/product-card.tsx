@@ -127,6 +127,18 @@ export function ProductCard({ product, className, isWishlisted = false }: Produc
               {formattedPrice}
             </span>
           </div>
+
+          <div className="sm:hidden">
+            <AddToCartButton 
+              product={product}
+              productId={product.id} 
+              isOutOfStock={false}
+              size="icon" 
+              className="h-9 w-9 rounded-full bg-primary text-primary-foreground shadow-sm"
+            >
+              <ShoppingCart className="h-4 w-4" />
+            </AddToCartButton>
+          </div>
         </div>
       </div>
     </div>

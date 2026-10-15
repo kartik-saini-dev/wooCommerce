@@ -2,8 +2,8 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@source "../../../packages/ui/src";
-@source "../../src";
+@source "../../../../packages/ui/src";
+@source "..";
 
 @variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 

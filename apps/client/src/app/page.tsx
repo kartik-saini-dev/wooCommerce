@@ -7,6 +7,7 @@ import { FeaturedProducts } from "@repo/ui/components/home/featured-products"
 import { FeaturedServices } from "@repo/ui/components/home/featured-services"
 import { CtaSection } from "@repo/ui/components/home/cta-section"
 import { featuresConfig } from "@repo/ui/config/features"
+import { showcaseCategories, showcaseProducts, showcaseServices } from "@repo/ui/config/demo-data"
 
 export default async function HomePage() {
   let categories: any[] = []
@@ -50,13 +51,18 @@ export default async function HomePage() {
     console.error("Failed to load homepage data:", error)
   }
 
+  // Gracefully fall back to showcase data so deployed site is always rich and professional
+  const displayCategories = categories.length > 0 ? categories : showcaseCategories
+  const displayProducts = products.length > 0 ? products : showcaseProducts
+  const displayServices = services.length > 0 ? services : showcaseServices
+
   return (
     <>
       {featuresConfig.homepageSections.hero && <HeroSection />}
       <FeaturesSection />
-      {featuresConfig.homepageSections.categories && <FeaturedCategories categories={categories} />}
-      {featuresConfig.homepageSections.featuredProducts && <FeaturedProducts products={products} />}
-      {featuresConfig.homepageSections.servicesPreview && featuresConfig.enableServices && <FeaturedServices services={services} />}
+      {featuresConfig.homepageSections.categories && <FeaturedCategories categories={displayCategories} />}
+      {featuresConfig.homepageSections.featuredProducts && <FeaturedProducts products={displayProducts} />}
+      {featuresConfig.homepageSections.servicesPreview && featuresConfig.enableServices && <FeaturedServices services={displayServices} />}
       {featuresConfig.homepageSections.cta && <CtaSection />}
     </>
   )
