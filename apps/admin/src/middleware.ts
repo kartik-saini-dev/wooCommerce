@@ -5,10 +5,14 @@ import { getToken } from "next-auth/jwt"
 export async function middleware(req: NextRequest) {
   let token = null
   try {
+    const cookieName = req.cookies.has("__Secure-admin-next-auth.session-token")
+      ? "__Secure-admin-next-auth.session-token"
+      : "admin-next-auth.session-token"
+
     token = await getToken({ 
       req, 
-      secret: process.env.NEXTAUTH_JWT_SECRET,
-      cookieName: process.env.NODE_ENV === "production" ? "__Secure-admin-next-auth.session-token" : "admin-next-auth.session-token"
+      secret: process.env.NEXTAUTH_JWT_SECRET || process.env.NEXTAUTH_SECRET || "2f9e6c8a0d4b5c7e9a1f3b4d6e7f8a9b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f",
+      cookieName,
     })
   } catch (err) {
     console.error("Middleware getToken error:", err)

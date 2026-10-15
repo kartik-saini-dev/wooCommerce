@@ -4,7 +4,8 @@ import {
   IndianRupee, 
   Package, 
   ShoppingCart, 
-  Users 
+  Users,
+  ExternalLink
 } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/ui/components/ui/card"
 
@@ -19,7 +20,17 @@ export default async function AdminDashboard() {
       <PageHeader 
         title="Dashboard" 
         description="Overview of your store's performance."
-      />
+      >
+        <a
+          href={process.env.NEXT_PUBLIC_CLIENT_URL || "https://woo-commerce-ccrv.vercel.app"}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 px-3.5 py-2 text-xs sm:text-sm font-semibold shadow-xs transition-all"
+        >
+          <ExternalLink className="h-4 w-4" />
+          <span>Visit Live Store</span>
+        </a>
+      </PageHeader>
       
       {!stats ? (
         <div className="p-8 text-center text-muted-foreground border rounded-lg">

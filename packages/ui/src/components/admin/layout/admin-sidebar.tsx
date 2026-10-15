@@ -13,7 +13,8 @@ import {
   Users, 
   Wrench,
   Images,
-  ShieldAlert
+  ShieldAlert,
+  ExternalLink
 } from "lucide-react"
 
 import { cn } from "@repo/services/utils"
@@ -73,6 +74,18 @@ export function AdminSidebar() {
             )
           })}
         </nav>
+      </div>
+
+      <div className="mt-auto border-t p-4 bg-muted/20">
+        <a
+          href={process.env.NEXT_PUBLIC_CLIENT_URL || "https://woo-commerce-ccrv.vercel.app"}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 w-full rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 font-semibold py-2.5 px-3 text-xs shadow-sm transition-all group"
+        >
+          <ExternalLink className="h-4 w-4 transition-transform group-hover:scale-110" />
+          <span>Visit Live Storefront</span>
+        </a>
       </div>
     </aside>
   )

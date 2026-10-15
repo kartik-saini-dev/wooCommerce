@@ -15,7 +15,8 @@ import {
   PanelLeft,
   Search,
   ShieldAlert,
-  Images
+  Images,
+  ExternalLink
 } from "lucide-react"
 
 import { Button } from "@repo/ui/components/ui/button"
@@ -105,6 +106,16 @@ export function AdminNavbar() {
       </div>
       
       <div className="flex items-center space-x-2">
+        <a
+          href={process.env.NEXT_PUBLIC_CLIENT_URL || "https://woo-commerce-ccrv.vercel.app"}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background hover:bg-muted text-foreground text-xs font-semibold px-2.5 sm:px-3 h-9 transition-colors shrink-0 shadow-xs"
+          title="Open live client storefront in a new tab"
+        >
+          <ExternalLink className="h-3.5 w-3.5 text-primary" />
+          <span className="hidden sm:inline">Live Store</span>
+        </a>
         <LanguageSelector />
         <ThemeToggle />
       </div>
@@ -118,6 +129,10 @@ export function AdminNavbar() {
         <DropdownMenuContent align="end">
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
+          <DropdownMenuItem onClick={() => window.open(process.env.NEXT_PUBLIC_CLIENT_URL || "https://woo-commerce-ccrv.vercel.app", "_blank")}>
+            <ExternalLink className="mr-2 h-4 w-4" />
+            Live Storefront
+          </DropdownMenuItem>
           <DropdownMenuItem onClick={() => window.location.href = '/admin/settings'}>
             Settings
           </DropdownMenuItem>
